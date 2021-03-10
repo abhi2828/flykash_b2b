@@ -70,12 +70,12 @@
  }
  
  .active {
-     border-bottom: 2px solid #edc815;
+     border-bottom: 2px solid #86ff3b;
  }
  
  .menu-3 a::before {
      transform-origin: 50% 50%;
-     background: #edc815;
+     background: #86ff3b;
  }
  /* search section  */
  
@@ -173,7 +173,7 @@
      bottom: -15px;
      height: 2px;
      width: 50px;
-     background: #edc815;
+     background: #86ff3b;
  }
  
  .footer-widget ul li {
@@ -188,7 +188,7 @@
  }
  
  .footer-widget ul li a:hover {
-     color: #edc815;
+     color: #86ff3b;
  }
  
  .footer-widget ul li a {
@@ -224,7 +224,7 @@
  }
  
  .subscribe-form button i {
-     color: #edc815;
+     color: #86ff3b;
      font-size: 22px;
      transform: rotate(-6deg);
  }
@@ -241,7 +241,7 @@
  }
  
  .copyright-text p a {
-     color: #edc815;
+     color: #86ff3b;
  }
  
  .footer-menu li {
@@ -250,7 +250,7 @@
  }
  
  .footer-menu li:hover a {
-     color: #edc815;
+     color: #86ff3b;
  }
  
  .footer-menu li a {
