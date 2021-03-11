@@ -146,7 +146,8 @@
             background: var(--primary);
         }
         
-        .input_lable input:hover~.text {
+        .input_lable input:hover~.text,
+        .input_lable input:focus~.text {
             color: var(--primary);
         }
         
@@ -169,6 +170,10 @@
             background: #86ff3b99;
             border-radius: 20px;
             padding: 15px 30px;
+        }
+        
+        .col-md-6.show_flight {
+            margin-top: 15px;
         }
     </style>
 
@@ -436,14 +441,14 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <span class="form-label">Flying from</span>
-                                                    <input class="form-control" type="text" placeholder="City or airport">
+                                                    <span class="form-label">from</span>
+                                                    <input class="form-control" type="text" placeholder="Enter City or airport">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <span class="form-label">Flyning to</span>
-                                                    <input class="form-control" type="text" placeholder="City or airport">
+                                                    <span class="form-label">to</span>
+                                                    <input class="form-control" type="text" placeholder="Enter Destination City or airport">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -511,7 +516,13 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12 show_flight">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <span class="form-label">Preferred Airline</span>
+                                                    <input class="form-control" type="text" placeholder="Enter Preferred Airline">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 show_flight">
                                                 <div class="form-inline">
                                                     <div class="custom-control custom-checkbox my-1 mr-sm-2">
                                                         <input type="checkbox" class="custom-control-input" id="customControlInline">
