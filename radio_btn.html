@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<style>
+    .dark {
+        width: 50%;
+        min-height: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+    }
+    
+    .dark::before {
+        width: 30px;
+        height: 30px;
+        background: var(--primary);
+        clip-path: polygon(0 100%, 100% 0, 100% 100%);
+        top: 18px;
+        left: 18px;
+    }
+    
+    .dark::after {
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--primary);
+        top: 11px;
+        left: 11px;
+    }
+    
+    .dark {
+        --primary: hsl(1, 100%, 68%);
+        --other: hsl(0, 0%, 90%);
+        background: hsl(0, 0%, 10%);
+    }
+    
+    .radio_btn {
+        display: flex;
+    }
+    
+    label.input_lable {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
+        margin: 12px 30px;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .input_lable input {
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+    
+    .design {
+        width: 25px;
+        height: 25px;
+        border: 1px solid var(--other);
+        border-radius: 100%;
+        margin-right: 16px;
+        position: relative;
+    }
+    
+    .design::before,
+    .design::after {
+        content: "";
+        display: block;
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+        position: absolute;
+        transform: scale(0);
+        transform-origin: center center;
+    }
+    
+    .design:before {
+        background: var(--other);
+        opacity: 0;
+        transition: .3s;
+    }
+    
+    .design::after {
+        background: var(--primary);
+        opacity: .4;
+        transition: .6s;
+    }
+    
+    .text {
+        color: var(--other);
+        font-weight: bold;
+    }
+    
+    .input_lable input:checked+.design::before {
+        opacity: 1;
+        transform: scale(.6);
+        left: -1.01px;
+        top: -1.01px;
+    }
+    
+    .input_lable input:hover+.design,
+    .input_lable input:focus+.design {
+        border: 1px solid var(--primary);
+    }
+    
+    .input_lable input:hover+.design:before,
+    .input_lable input:focus+.design:before {
+        background: var(--primary);
+    }
+    
+    .input_lable input:hover~.text {
+        color: var(--primary);
+    }
+    
+    .input_lable input:focus+.design::after,
+    .input_lable input:active+.design::after {
+        opacity: .1;
+        transform: scale(2.6);
+    }
+    
+    .abs-site-link {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        color: hsla(0, 0%, 0%, .6);
+        background: hsla(0, 0%, 98%, .6);
+        font-size: 16px;
+    }
+</style>
+
+<body>
+    <section class="dark">
+
+        <div class="radio_btn">
+            <label class="input_lable">
+                <input type="radio" name="dark" checked>
+                <span class="design"></span>
+                <span class="text One_way">One way</span>
+              </label>
+
+            <label class="input_lable">
+                <input type="radio" name="dark">
+                <span class="design"></span>
+                <span class="text Roundtrip">Roundtrip</span>
+              </label>
+
+            <label class="input_lable">
+                <input type="radio" name="dark">
+                <span class="design"></span>
+                <span class="text Multi-City">Multi-City</span>
+              </label>
+        </div>
+        <div class="form">
+            <form>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <span class="form-label">Flying from</span>
+                            <input class="form-control" type="text" placeholder="City or airport">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <span class="form-label">Flyning to</span>
+                            <input class="form-control" type="text" placeholder="City or airport">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <span class="form-label">Departing</span>
+                            <input class="form-control form-control-date" type="date" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <span class="form-label">Returning</span>
+                            <input class="form-control form-control-date" type="date" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="form-label">Adults (12+ yrs)</span>
+                            <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                            </select>
+                            <span class="select-arrow"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="form-label">Children (2 - 12 yrs)</span>
+                            <select class="form-control">
+                                <option>Children</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                </select>
+                            <span class="select-arrow"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="form-label">Infant (0 - 24 Month)</span>
+                            <select class="form-control">
+                                <option>Infant</option>
+                                <option>1</option>
+                                </select>
+                            <span class="select-arrow"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="form-label">Travel class</span>
+                            <select class="form-control form-control2">
+                                <option>Economy class</option>
+                                <option>Business class</option>
+                                <option>First class</option>
+                                </select>
+                            <span class="select-arrow"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4" style="padding-top: 30px;">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1" style="color: white;">I'm from Indian Armed Forces</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-btn">
+                            <button class="submit-btn" style="height: 50px;margin-top: -15px;">Show flights</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
